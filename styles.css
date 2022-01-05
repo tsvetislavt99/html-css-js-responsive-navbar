@@ -59,6 +59,7 @@ body {
     gap: 2rem;
 
     transform: translateX(100%);
+    transition: transform 350ms ease-out;
   }
 
   .primary-navigation[data-visible='true'] {
@@ -70,11 +71,29 @@ body {
     position: absolute;
     width: 2rem;
     aspect-ratio: 1;
-    background: url('assets/ui.svg');
+    background: url('assets/hamburger.svg');
     top: 2.5rem;
     right: 2rem;
     z-index: 9999;
     border: 0;
+  }
+
+  .mobile-nav-toggle[aria-expanded='true'] {
+    background: url('assets/hamburger-closed.svg');
+  }
+}
+
+@media (min-width: 35em) and (max-width: 55em) {
+  .primary-navigation a > span {
+    display: none;
+  }
+}
+
+@media (min-width: 35em) {
+  .primary-navigation {
+    padding-block: 2rem;
+    padding-inline: clamp(3rem, 5vw, 10rem);
+    gap: 3rem;
   }
 }
 
